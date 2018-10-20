@@ -8,10 +8,6 @@ let rows = 8;
 let cols = 10;
 let grid;
 
-function animate(time) {
-  requestAnimationFrame(animate);
-  TWEEN.update(time);
-}
 requestAnimationFrame(animate);
 
 function setup() {
