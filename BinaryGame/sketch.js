@@ -49,8 +49,8 @@ function startRound(){
 
 response.addEventListener('input', e => {
   const res = parseInt(e.target.value);
-  console.log(res == currentNumber ? 'Correct Answer' : 'Try Again');
-  if(res == currentNumber){
+  console.log(res === currentNumber ? 'Correct Answer' : 'Try Again');
+  if(res === currentNumber){
     correct.style.display = 'block';
     setTimeout(() => {
       correct.style.display = 'none';
