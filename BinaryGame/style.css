@@ -75,3 +75,9 @@ td {
   color: red;
   background-color: #FF500050;
 }
+
+.scoreboard {
+  display: flex;
+  flex-flow: column;
+  align-items: flex-end;
+}

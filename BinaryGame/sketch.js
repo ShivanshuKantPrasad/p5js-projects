@@ -7,6 +7,9 @@ const response = document.querySelector('#response');
 const correct = document.querySelector('.correct');
 const wrong = document.querySelector('.wrong');
 
+const scoreDisplay = document.querySelector('#score');
+const highScoreDisplay = document.querySelector('#highScore');
+
 const dots = document.querySelectorAll('.dot');
 game.style.display = 'none';
 
@@ -17,10 +20,24 @@ let currentNumber = 0;
 let isTimedMode = false;
 
 function playGame(isTimed) {
-  console.log(`Playing Game with timer ${isTimed ? 'on' : 'off'}`);
+
   game.style.display = 'block';
   instructions.style.display = 'none';
   isTimedMode = isTimed;
+
+  startRound();
+
+}
+
+function startRound(){
+
+  if(isTimedMode) {
+    setTimeout(() => {
+
+    }, 1000);
+  }
+
+  response.value = '';
 
   currentNumber = Math.floor(Math.random() * 256);
   for (let i = 7; i >= 0; i--) {
@@ -38,10 +55,17 @@ response.addEventListener('input', e => {
     setTimeout(() => {
       correct.style.display = 'none';
       currentScore += 10;
-      console.log(currentScore);
-      playGame(isTimedMode);
+      scoreDisplay.innerText = `Score: ${currentScore}`;
 
-    }, 1000)
+      if(currentScore > highScore) {
+        highScore = currentScore;
+        highScoreDisplay.innerText = `High Score: ${highScore}`;
+      }
+
+      console.log(currentScore);
+      startRound();
+
+    }, 300)
   }
 });
 
